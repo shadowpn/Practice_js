@@ -43,6 +43,29 @@ const a = prompt("Один из последних просмотренных ф
 personalMovieDB.movies[a] = b;
 personalMovieDB.movies[c] = d;
 
+for (let i = 0; i < 2; i++){
+	const a = prompt("Один из последних просмотренных фильмов?", ""),
+	      b = prompt("На сколько оцените его?", "");
+	
+	if(a != null && b != null && a != "" && b != "" && a.length < 50) {
+      personalMovieDB.movies[a] = b;
+	  console.log("Done!")
+	} else {
+		console.log("error");
+		i--;
+	}
+    if (personalMovieDB.count < 10) {
+		console.log("Посмотрено довольно мало фильмов");	
+	} else if (personalMovieDB > 10 && personalMovieDB < 30) {
+		console.log("Вы класический зритель")
+	} else if (personalMovieDB >= 30) {
+		console.log("Вы киноман")
+	} else {
+		console.log("Ошибка")
+	}
+	
+}
+
 console.log(personalMovieDB);
 
 
@@ -176,6 +199,122 @@ first: for (let i = 0; i < 3; i++) {
     Строка console.log(Third level: ${k}); выводит значение переменной k на третьем уровне цикла.
 */
 
+//Task 1;
+
+for (let i = 5; i < 11; i++){
+	console.log(i)
+}
+
+//Task2;
+
+for (let j = 20; j > 10; j--) {
+	if (j ===13) break;
+	console.log(j);
+}
+//Task 3;
+
+for (let k = 2; k <= 10; k +=2) {
+	console.log(k)
+}
+//Task 4;
+for (let i = 2; i <= 16; i++) {
+     if (i % 2 === 0) {
+         continue;
+     } else {
+         console.log(i);
+     }
+ }
+//Переписаный код 
+let i = 2;
+while (i <= 16) {
+    if (i % 2 === 0) {
+        i++;
+        continue;
+    } else {
+        console.log(i);
+    }
+    i++;
+}
+//Task 5
+let arr = []; // Создаем пустой массив
+for (let i = 5; i <= 10; i++) {
+    arr.push(i); // Добавляем каждое число от 5 до 10 в массив
+}
+
+console.log(arr); // Выводим массив в консоль
+
+//Task
+// Место для первой задачи - Заполните новый массив (result) числами из старого (arr). Количество элементов в массиве можно получить как arr.length, а к элементам обращаемся все так же: arr[0], arr[1] и тд.
+//Должен получиться точно такой же массив
+function firstTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const arr = [3, 5, 8, 16, 20, 23, 50];
+    const result = [];
+
+    // Пишем решение вот тут
+    for (let i = 0; i < arr.length; i++) {
+        result.push(arr[i]);
+    }
+    
+    // Не трогаем
+    return result;
+}
+
+// Место для второй задачи Измените данный массив так, чтобы все числа были увеличены в 2 раза, а если попадается строка строка - то к ней было добавлено " - done".
+//Для определения типа данных используйте typeof();
+//Должно получиться: [ 10, 20, 'Shopping - done', 40, 'Homework - done' ]
+function secondTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, "Shopping", 20, "Homework"];
+
+    // Пишем решение вот тут
+    for (let i = 0; i < data.length; i++) {
+        // Проверяем, является ли текущий элемент числом
+        if (typeof data[i] === "number") {
+            // Увеличиваем число в 2 раза
+            data[i] *= 2;
+        } else if (typeof data[i] === "string") {
+            // Добавляем к строке " - done"
+            data[i] +=  "- done";
+        }
+    }
+    
+    // Не трогаем
+    return data;
+}
+
+// Место для третьей задачи - Разверните массив data наоборот при помощи цикла и запишите данные в массив result.
+//Должно получиться: [ 'Homework', 20, 'Shopping', 10, 5 ]
+function thirdTask() {
+    // Значения массива менять нельзя, тут он проверяется автоматически именно на эти значения
+    const data = [5, 10, "Shopping", 20, "Homework"];
+    const result = [];
+
+    // Пишем решение вот тут
+      for (let i = data.length - 1; i >= 0; i--) {
+        // Добавляем текущий элемент массива data в начало массива result
+        result.push(data[i]);
+    }
+    
+    // Не трогаем
+    return result;
+}
+
+const lines = 5;
+let res = " ";
+// Проверяется именно переменная result, формируйте строку в ней
+for (let i = 0; i <= lines; i++) {
+    for (let j = 0; j < lines - i; j++) {
+        res += " ";
+    }
+    for (let j = 0; j < 2 * i + 1; j++) {
+        res += "*";
+    }
+    res += "\n";
+}
+
+console.log(res);
+//В этом коде происходит построение треугольника из звездочек с помощью вложенных циклов. Каждая строка состоит из пробелов и звездочек. Первый внутренний цикл добавляет пробелы перед звездочками для выравнивания их вправо. Второй внутренний цикл добавляет звездочки в каждую строку. После завершения построения строки добавляется символ переноса строки \n, чтобы начать новую строку.
 
 
 
