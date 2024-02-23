@@ -28,6 +28,33 @@ function doNothing() {};
 console.log(doNothing() === undefined);
 
 
+//Task
+
+// Место для третьей задачи
+function getMathResult(base, repeat) {
+	if (typeof repeat !== "number" || repeat <= 0) {
+		return base;
+	}
+
+	let result = " ";
+	for (let i = 1; i <= repeat; i++) {
+		result += base * i;
+		if (i !== repeat) {
+			result += "---";
+		}
+	}
+	return result;
+}
+getMathResult(5, 3);
+getMathResult(3, 10);
+getMathResult(10, 5);
+getMathResult(10, "5");
+getMathResult(10, 0);
+getMathResult(20, -5);
+
+
+
+
 
 
 
