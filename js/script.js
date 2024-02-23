@@ -24,7 +24,15 @@
 
 // console.log(2*4 == 8);
 
-const numberOfFilms = +prompt("Cколько фильмов вы уже посмотрели?", "");
+let numberOfFilms;
+
+function start() {
+	numberOfFilms = +prompt("Cколько фильмов вы уже посмотрели?", "");
+	while (numberOfFilms == " " || numberOfFilms == null || isNaN(numberOfFilms)) {
+        numberOfFilms = +prompt("Cколько фильмов вы уже посмотрели?", "");
+	}
+}
+start();
 
 const personalMovieDB = {
 	count: numberOfFilms,
@@ -43,18 +51,24 @@ const a = prompt("Один из последних просмотренных ф
 personalMovieDB.movies[a] = b;
 personalMovieDB.movies[c] = d;
 
-for (let i = 0; i < 2; i++){
+function rememberFilms() {
+  for (let i = 0; i < 2; i++){
+	
 	const a = prompt("Один из последних просмотренных фильмов?", ""),
 	      b = prompt("На сколько оцените его?", "");
-	
 	if(a != null && b != null && a != "" && b != "" && a.length < 50) {
       personalMovieDB.movies[a] = b;
-	  console.log("Done!")
+	  console.log("error");
+		i--;og("Done!")
 	} else {
-		console.log("error");
-		i--;
+		console.l
 	}
-    if (personalMovieDB.count < 10) {
+ }
+}
+rememberFilms();
+
+function detectPersonalLevel() {
+       if (personalMovieDB.count < 10) {
 		console.log("Посмотрено довольно мало фильмов");	
 	} else if (personalMovieDB > 10 && personalMovieDB < 30) {
 		console.log("Вы класический зритель")
@@ -62,18 +76,20 @@ for (let i = 0; i < 2; i++){
 		console.log("Вы киноман")
 	} else {
 		console.log("Ошибка")
-	}
-	
+	}	
 }
+
+detectPersonalLevel();
+
 
 console.log(personalMovieDB);
 
 
-if ( 4 == 9 ) { 
-	console.log("Ok!");
-} else {
-	console.log("Error");
-}
+// if ( 4 == 9 ) { 
+// 	console.log("Ok!");
+// } else {
+// 	console.log("Error");
+// }
 
 // условие  if else
 // const num = 50;
@@ -107,18 +123,18 @@ if ( 4 == 9 ) {
 // 	break;
 // }
 
-console.log( NaN || 2 || undefined );
+// console.log( NaN || 2 || undefined );
 
-console.log( NaN && 2 && undefined );
+// console.log( NaN && 2 && undefined );
 
 
-console.log( 25 || null && !3 );
+// console.log( 25 || null && !3 );
 
-console.log( NaN || null || !3 || undefined || 5);
+// console.log( NaN || null || !3 || undefined || 5);
 
-console.log( NaN || null && !3 && undefined || 5);
+// console.log( NaN || null && !3 && undefined || 5);
 
-console.log( 5 === 5 && 3 > 1 || 5);
+// console.log( 5 === 5 && 3 > 1 || 5);
 
 // let hamburger;
 // const fries = NaN;
@@ -130,17 +146,17 @@ console.log( 5 === 5 && 3 > 1 || 5);
 // 	console.log("Done!");
 // }
 
-let hamburger;
-const fries = NaN;
-const cola = 0;
-const nuggets = 2;
+// let hamburger;
+// const fries = NaN;
+// const cola = 0;
+// const nuggets = 2;
 
 
-if (hamburger && cola || fries === 3 && nuggets) {
-	console.log("Done!");
-}
+// if (hamburger && cola || fries === 3 && nuggets) {
+// 	console.log("Done!");
+// }
 
-let num = 50;
+// let num = 50;
 
 // while (num < 50) {
 // 	console.log(num);
@@ -153,40 +169,40 @@ let num = 50;
 // }
 // while (num < 55);
 
-for (let i = 2; i < 8; i++) {
-	console.log(num);
-	num++;
-}
+// for (let i = 2; i < 8; i++) {
+// 	console.log(num);
+// 	num++;
+// }
 
-for (let i = 0; i < 3; i++) {
-	console.log(i);
-	for (let j = 0; j < 3; j++) {
-		console.log(j);
-	}
-}
+// for (let i = 0; i < 3; i++) {
+// 	console.log(i);
+// 	for (let j = 0; j < 3; j++) {
+// 		console.log(j);
+// 	}
+// }
 
-let result = "";
-const length = 7;
+// let result = "";
+// const length = 7;
 
-for (let i = 1; i < length; i++) {
-	for (let j = 0; j < i; j++){
-     result += "*";
-	}
+// for (let i = 1; i < length; i++) {
+// 	for (let j = 0; j < i; j++){
+//      result += "*";
+// 	}
 	
-	result += "\n";
-}
-console.log(result);
+// 	result += "\n";
+// }
+// console.log(result);
 
-first: for (let i = 0; i < 3; i++) {
-	console.log(`First level: ${i}`);
-	for (let j = 0; j < 3; j++) {
-		console.log(`Second level: ${j}`); 
-		for (let k = 0; k < 3; k++) {
-			if (k === 2) continue first;
-			console.log(`Third level: ${k}`); 		
-	    }
-	}
-}
+// first: for (let i = 0; i < 3; i++) {
+// 	console.log(`First level: ${i}`);
+// 	for (let j = 0; j < 3; j++) {
+// 		console.log(`Second level: ${j}`); 
+// 		for (let k = 0; k < 3; k++) {
+// 			if (k === 2) continue first;
+// 			console.log(`Third level: ${k}`); 		
+// 	    }
+// 	}
+// }
 /*
 В этом коде используется вложенный цикл for, который выполняется три раза для переменной i, три раза для переменной j и три раза для переменной k.
 
