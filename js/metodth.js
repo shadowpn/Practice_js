@@ -114,24 +114,31 @@ console.log(findMaxNumber(1, 5, '6', '10')); // Выведет: 0
 
 //Для собеседования числа Фибоначчи
 function fib(num) {
-    if (typeof num !== 'number' || num <= 0) {
+    if (typeof num !== 'number' || num <= 0 || !Number.isInteger(num)) {
         return '';
     }
 
-    let fibSequence = '0';
+    let fibSequence = ''; // Инициализируем пустую строку для последовательности чисел Фибоначчи
+    let a = 0; // Первое число Фибоначчи
+    let b = 1; // Второе число Фибоначчи
 
+    // Добавляем первое число Фибоначчи к последовательности
+    fibSequence += `${a}`;
+
+    // Если num больше 1, то вычисляем следующие числа Фибоначчи
     if (num > 1) {
-        let a = 0;
-        let b = 1;
-        for (let i = 1; i < num; i++) {
-            const nextFib = a + b;
-            fibSequence += ` ${nextFib}`;
-            a = b;
-            b = nextFib;
+        fibSequence += ` ${b}`; // Добавляем второе число Фибоначчи к последовательности
+
+        // Используем цикл для вычисления остальных чисел Фибоначчи
+        for (let i = 2; i < num; i++) {
+            const nextFib = a + b; // Вычисляем следующее число Фибоначчи
+            fibSequence += ` ${nextFib}`; // Добавляем его к последовательности
+            a = b; // Обновляем первое число Фибоначчи
+            b = nextFib; // Обновляем второе число Фибоначчи
         }
     }
 
-    return fibSequence;
+    return fibSequence; // Возвращаем строку с числами Фибоначчи
 }
 
 console.log(fib(4));  // "0 1 1 2"
